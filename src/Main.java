@@ -148,52 +148,52 @@
 //
 //    }
 //}
-//import java.util.Scanner;
-//public class Main {
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        Integer type = sc.nextInt();
-////        String a=sc.nextLine();
-//        String str = sc.next();
-//
-//        //压缩
-//        if (type == 0) {
-//
-//            String[] s = str.split(":");
-//            String res = "";
-//            for (int i = 0; i < s.length - 1; i++) {
-//                int first = 0;
-//                for (int j = 0; j < s[i].length() - 1; j++) {
-//                    while (s[i].charAt(j) == '0') {
-//                        j++;
-//                    }
-//                    s[i] = s[i].substring(j);
-//                    break;
-//                }
-//                if (i == s.length - 1) res += s[i];
-//                res += s[i];
-//                res += ":";
-//            }
-//            System.out.println(res);
-//        } else if (type == 1) {
-//            if(str.charAt(str.length()-1)==':') str+="000000";
-//            String[] s = str.split(":");
-//            String res = "";
-//
-//            for (int i = 0; i < s.length; i++){
-//                String mid="";
-//                for(int j=0;j<6-s[i].length();j++){
-//                   mid+="0";
-//                }
-//                mid+=s[i];
-//                if (i == s.length - 1) {res += mid;break;}
-//                res += mid;
-//                res += ":";
-//            }
-//            System.out.println(res);
-//        }
-//    }
-//}
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Integer type = sc.nextInt();
+//        String a=sc.nextLine();
+        String str = sc.next();
+
+        //压缩
+        if (type == 0) {
+
+            String[] s = str.split(":");
+            String res = "";
+            for (int i = 0; i < s.length - 1; i++) {
+                int first = 0;
+                for (int j = 0; j < s[i].length() - 1; j++) {
+                    while (s[i].charAt(j) == '0') {
+                        j++;
+                    }
+                    s[i] = s[i].substring(j);
+                    break;
+                }
+                if (i == s.length - 1) res += s[i];
+                res += s[i];
+                res += ":";
+            }
+            System.out.println(res);
+        } else if (type == 1) {
+            if(str.charAt(str.length()-1)==':') str+="000000";
+            String[] s = str.split(":");
+            String res = "";
+
+            for (int i = 0; i < s.length; i++){
+                String mid="";
+                for(int j=0;j<6-s[i].length();j++){
+                   mid+="0";
+                }
+                mid+=s[i];
+                if (i == s.length - 1) {res += mid;break;}
+                res += mid;
+                res += ":";
+            }
+            System.out.println(res);
+        }
+    }
+}
 
 
 //import java.util.Scanner;
