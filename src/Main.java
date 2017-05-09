@@ -148,109 +148,109 @@
 //
 //    }
 //}
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Integer type = sc.nextInt();
-//        String a=sc.nextLine();
-        String str = sc.next();
+//import java.util.Scanner;
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        Integer type = sc.nextInt();
+////        String a=sc.nextLine();
+//        String str = sc.next();
+//
+//        //压缩
+//        if (type == 0) {
+//
+//            String[] s = str.split(":");
+//            String res = "";
+//            for (int i = 0; i < s.length - 1; i++) {
+//                int first = 0;
+//                for (int j = 0; j < s[i].length() - 1; j++) {
+//                    while (s[i].charAt(j) == '0') {
+//                        j++;
+//                    }
+//                    s[i] = s[i].substring(j);
+//                    break;
+//                }
+//                if (i == s.length - 1) res += s[i];
+//                res += s[i];
+//                res += ":";
+//            }
+//            System.out.println(res);
+//        } else if (type == 1) {
+//            if(str.charAt(str.length()-1)==':') str+="000000";
+//            String[] s = str.split(":");
+//            String res = "";
+//
+//            for (int i = 0; i < s.length; i++){
+//                String mid="";
+//                for(int j=0;j<6-s[i].length();j++){
+//                   mid+="0";
+//                }
+//                mid+=s[i];
+//                if (i == s.length - 1) {res += mid;break;}
+//                res += mid;
+//                res += ":";
+//            }
+//            System.out.println(res);
+//        }
+//    }
+//}
 
-        //压缩
-        if (type == 0) {
 
-            String[] s = str.split(":");
-            String res = "";
-            for (int i = 0; i < s.length - 1; i++) {
-                int first = 0;
-                for (int j = 0; j < s[i].length() - 1; j++) {
-                    while (s[i].charAt(j) == '0') {
-                        j++;
-                    }
-                    s[i] = s[i].substring(j);
-                    break;
-                }
-                if (i == s.length - 1) res += s[i];
-                res += s[i];
-                res += ":";
-            }
-            System.out.println(res);
-        } else if (type == 1) {
-            if(str.charAt(str.length()-1)==':') str+="000000";
-            String[] s = str.split(":");
-            String res = "";
-
-            for (int i = 0; i < s.length; i++){
-                String mid="";
-                for(int j=0;j<6-s[i].length();j++){
-                   mid+="0";
-                }
-                mid+=s[i];
-                if (i == s.length - 1) {res += mid;break;}
-                res += mid;
-                res += ":";
-            }
-            System.out.println(res);
-        }
-    }
-}
-
-
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        String[] doc = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()) {
-            String sentence = scanner.nextLine();
-            String[] words = sentence.split(" ");
-            int num = scanner.nextInt();
-            int c = num % 10;
-            num /= 10;
-            int b = num % 10;
-            num /= 10;
-            int a = num % 10;
-            String s2 = doc[a] + doc[b] + doc[c];
-            String s = scanner.nextLine();
-
-            String result = "";
-            int max = 0;
-            for (String word : words) {
-                int temp = max(word, s2);
-                if (temp > max) {
-                    result = word;
-                    max = temp;
-                }
-            }
-            System.out.println(result);
-        }
-    }
-
-    private static int max(String s1, String s2) {
-        if (s1.length() == 0 || s2.length() == 0) return 0;
-
-        int max = 0;
-        int[][] dp = new int[s1.length()][s2.length()];
-        for (int i = 0; i < s1.length(); i++) {
-            for (int j = 0; j < s2.length(); j++) {
-                if (s1.charAt(i) == s2.charAt(j)) {
-                    if (i > 0 && j > 0) {
-                        dp[i][j] = dp[i - 1][j - 1] + 1;
-                    } else {
-                        dp[i][j] = 1;
-                    }
-                } else {
-                    dp[i][j] = 0;
-                }
-                if (dp[i][j] > max) {
-                    max = dp[i][j];
-                }
-            }
-        }
-        return max;
-    }
-}
+//import java.util.Scanner;
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        String[] doc = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+//        Scanner scanner = new Scanner(System.in);
+//        while (scanner.hasNext()) {
+//            String sentence = scanner.nextLine();
+//            String[] words = sentence.split(" ");
+//            int num = scanner.nextInt();
+//            int c = num % 10;
+//            num /= 10;
+//            int b = num % 10;
+//            num /= 10;
+//            int a = num % 10;
+//            String s2 = doc[a] + doc[b] + doc[c];
+//            String s = scanner.nextLine();
+//
+//            String result = "";
+//            int max = 0;
+//            for (String word : words) {
+//                int temp = max(word, s2);
+//                if (temp > max) {
+//                    result = word;
+//                    max = temp;
+//                }
+//            }
+//            System.out.println(result);
+//        }
+//    }
+//
+//    private static int max(String s1, String s2) {
+//        if (s1.length() == 0 || s2.length() == 0) return 0;
+//
+//        int max = 0;
+//        int[][] dp = new int[s1.length()][s2.length()];
+//        for (int i = 0; i < s1.length(); i++) {
+//            for (int j = 0; j < s2.length(); j++) {
+//                if (s1.charAt(i) == s2.charAt(j)) {
+//                    if (i > 0 && j > 0) {
+//                        dp[i][j] = dp[i - 1][j - 1] + 1;
+//                    } else {
+//                        dp[i][j] = 1;
+//                    }
+//                } else {
+//                    dp[i][j] = 0;
+//                }
+//                if (dp[i][j] > max) {
+//                    max = dp[i][j];
+//                }
+//            }
+//        }
+//        return max;
+//    }
+//}
 
 //import java.util.Scanner;
 ////判断把激光炮放在车头x和车尾y两处的时候，能摧毁多少运输车，判断只要枚举一遍所有的运输车即可。
